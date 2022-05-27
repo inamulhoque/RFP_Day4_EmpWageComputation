@@ -1,24 +1,33 @@
 public class EmpWageComputation {
-    public static void main(String[] args) {
-//        int isFullTime = 1;
-//        int isPartTime = 2;
-        int EmpRatePerHr = 20;
+    public static void main(String args[]) {
+        int isFullTime = 1;
+        int isPartTime = 2;
+        int EmpRatePerHour = 20;
+        int MaxWorkingDay = 20;
+        int empTotalWage = 0;
         int emphrs = 0;
-        int empwage = 0;
-        int empCheck = (int) (Math.floor(Math.random()*10)%3);
-        switch (empCheck){
-            case 1:
-                System.out.println("Employee is present full time");
-                emphrs = 8;
-                break;
-            case 2:
-                System.out.println("Employee is present part time");
-                emphrs = 4;
-                break;
-            default:
-                System.out.println("Employee is absent");
+        int day = 1;
+        int totalWorkingHour = 0;
+
+        while(day <= MaxWorkingDay) {
+            day++;
+            double empCheck = Math.floor(Math.random() * 10) % 3;
+            switch ((int) empCheck){
+                case 1:
+                    System.out.println("Employee is present full time");
+                    emphrs = 8;
+                    break;
+                case 2:
+                    System.out.println("Employee is present part time");
+                    emphrs = 4;
+                    break;
+                default:
+                    System.out.println("Employee is absent");
+            }
+            totalWorkingHour=totalWorkingHour+emphrs;
         }
-        empwage = emphrs * EmpRatePerHr;
-        System.out.print("Today's wage is: "+empwage);
+
+        empTotalWage = totalWorkingHour * EmpRatePerHour;
+        System.out.println("Total salary of a month: "+empTotalWage);
     }
 }
